@@ -14,3 +14,6 @@
 - LICENSE: the license file of your project. Useful especially for GitHub
 - Project001.sln: the solution file of your projects
 - README.md: useful for GitHub but also to give an overview of the project to the other people involved
+
+Source:
+https://dev.to/kasuken/net-project-folders-structure-36o8
