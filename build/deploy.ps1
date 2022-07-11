@@ -22,8 +22,10 @@ New-AzResourceGroup -Name $resourceGroupName -Location "switzerlandnorth" -Tag $
 # deploy resource with bicep
 $parameters = @{
     ResourceGroupName = $resourceGroupName
-    Mode = "Complete"
+    Mode = "Complete" #"Incremental"
     TemplateFile = "./main.bicep"
     Tag = $tags
 }
-New-AzResourceGroupDeployment @parameters -Confirm:$false
+#New-AzResourceGroupDeployment @parameters -Force
+#New-AzResourceGroupDeployment @parameters -ProceedIfNoChange
+New-AzResourceGroupDeployment @parameters -WhatIf -WhatIfResultFormat ResourceIdOnly
