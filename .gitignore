@@ -1,6 +1,4 @@
 ﻿/.vs/SampleProject
-/src/WeatherAPI/bin/Debug/net6.0
-/src/WeatherAPI/obj
 /src/DemoAPI/bin/Debug/net6.0
 /src/DemoAPI/obj
 /.vs/ProjectEvaluation
