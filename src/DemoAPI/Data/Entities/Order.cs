@@ -20,5 +20,5 @@ public class Order
     /// Gets or sets the product Ids.  
     /// </summary>  
     /// <value>The product Ids.</value>  
-    Collection<int> ProductIds { get; set; } = new Collection<int>();
+    public Collection<Guid> ProductIds { get; set; } = new Collection<Guid>();
 }

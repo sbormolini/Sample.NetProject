@@ -25,7 +25,7 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> Get(Guid id)
     {
         var order = await _orderService.GetById(id);
-        if (order is not null)
+        if (order is null)
             return NotFound();
        
         return Ok(order);

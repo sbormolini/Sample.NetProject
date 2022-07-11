@@ -4,3 +4,5 @@
 /src/DemoAPI/bin/Debug/net6.0
 /src/DemoAPI/obj
 /.vs/ProjectEvaluation
+/tests/DemoAPI.Test/obj
+/tests/DemoAPI.Test/bin/Debug/net6.0
