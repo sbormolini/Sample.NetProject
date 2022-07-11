@@ -17,12 +17,12 @@ public class OrderDbContext : DbContext
     /// <param name="options">The options.</param>    
     public OrderDbContext(DbContextOptions<OrderDbContext> options) : base(options) {}
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Order>().HasData(
-            new Order { OrderId = 1, Name = "MSDN Order" },
-            new Order { OrderId = 2, Name = "Docker Order" },
-            new Order { OrderId = 3, Name = "EFCore Order" }
-        );
-    }
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+    //    modelBuilder.Entity<Order>().HasData(
+    //        new Order { OrderId = 1, Name = "MSDN Order" },
+    //        new Order { OrderId = 2, Name = "Docker Order" },
+    //        new Order { OrderId = 3, Name = "EFCore Order" }
+    //    );
+    //}
 }

@@ -8,7 +8,7 @@ public class Order
     /// Gets or sets the order identifier.  
     /// </summary>  
     /// <value>The order identifier.</value>  
-    public int OrderId { get; set; }
+    public Guid OrderId { get; set; }
 
     /// <summary>  
     /// Gets or sets the name.  

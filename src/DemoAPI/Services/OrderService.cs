@@ -9,48 +9,36 @@ public class OrderService : IOrderService
     private readonly OrderDbContext _context;
     public OrderService(OrderDbContext context) => _context = context;
 
-    //public async Task<List<Order>> GetAllAsync()
-    //{
-    //    return await _context.Orders.ToListAsync();
-    //}
-    //public async Task SaveAsync(Order newTodo)
-    //{
-    //    _context.Orders.Add(newTodo);
-    //    await _context.SaveChangesAsync();
-    //}
-
-    public async Task<List<Order>> GetAllOrder()
+    public async Task<Order> Create(Order? order)
     {
-        return await _context.Orders.ToListAsync();
-    }
+        if (order is null)
+            throw new ArgumentNullException(nameof(order));
 
-    public async Task<Order?> GetOrder(int id)
-    {
-        return await _context.Orders.FindAsync(id);
-    }
-
-    public async Task PutOrder(int id, Order order)
-    {
         _context.Orders.Add(order);
         await _context.SaveChangesAsync();
+        
+        return order;
     }
 
-    public async Task PostOrder(Order order)
+    public async Task<IEnumerable<Order>> GetAllItems() => await _context.Orders.ToListAsync();
+  
+    public async Task<Order?> GetById(Guid id) => await _context.Orders.FindAsync(id);
+
+
+    public Task<bool> Update(Order? order)
     {
-        _context.Orders.Add(order);
-        await _context.SaveChangesAsync();
+        throw new NotImplementedException();
     }
 
-    public async Task DeleteOrder(Order order)
+    public async Task<bool> Remove(Guid id)
     {
-        _context.Orders.Remove(order);
-        await _context.SaveChangesAsync();
-    }
+        var existingOrder = await GetById(id);
+        if (existingOrder is null)
+            return false;
 
-    public async Task SaveChangesAsync()
-    {
+        _context.Orders.Remove(existingOrder);
         await _context.SaveChangesAsync();
-    }
 
-    public bool IsOrderExists(int id) => _context.Orders.Any(e => e.OrderId == id);
+        return true;
+    }
 }
